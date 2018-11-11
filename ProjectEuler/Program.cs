@@ -13,13 +13,8 @@ namespace ProjectEuler
 
         public void Go()
         {
-            $"Hello World! The time is {DateTime.Now.ToShortTimeString()}".ToConsole();
-
-            NewLine.ToConsole();
-        
-            string answer = (4.IsMultipleOf(2)) ? "is" : "is not";
-            $"4 {answer} a multiple of 2".ToConsole();
-
+            var p = new Problem1(1000);
+            $"there are {p.Count} multiples, with sum {p.Sum}".ToConsole();
             "Press any key to continue".KeyPrompt();
         }
     }
