@@ -62,15 +62,7 @@ namespace ProjectEuler
             return newSet;
         }
 
-        public static int Sum(this HashSet<int> set)
-        {
-            int accumulator = 0;
-            foreach(int i in set)
-            {
-                accumulator += i;
-            }
-            return accumulator;
-        }
+        
         
     }
 }

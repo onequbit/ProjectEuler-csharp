@@ -20,5 +20,15 @@ namespace ProjectEuler
             prompt.Print();
             Console.ReadKey();
         }
+
+        public static int Sum(this HashSet<int> set)
+        {
+            int accumulator = 0;
+            foreach (int i in set)
+            {
+                accumulator += i;
+            }
+            return accumulator;
+        }
     }
 }
