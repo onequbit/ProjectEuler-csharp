@@ -26,23 +26,11 @@ namespace PE_UnitTests
             this.mockRepository.VerifyAll();
         }
 
-        //private Problem2 CreateProblem2()
-        //{
-        //    return new Problem2(10);
-        //}
-
         [TestMethod]
         public void GetFibonacciSequence_StateUnderTest_ExpectedBehavior()
         {
             int maxValue = 4000000;
-            //for (int i = 0; i < maxValue; i++)
-            //{
-            //    $"Max Value: {i}".ToConsole();
-            //    var fib = new Problem2(i).FibonacciSequence;
-            //    fib.PrintLines("set");
-            //    fib.SelectEvens().PrintLines("filtered");
-            //    Assert.IsTrue(true);
-            //}
+            
             $"Max Value: {maxValue}".ToConsole();
             var fib = new Problem2(maxValue).FibonacciSequence;
             fib.PrintLines("set");

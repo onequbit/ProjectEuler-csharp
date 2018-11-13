@@ -1,7 +1,4 @@
-﻿using System;
-using static System.Environment;
-
-namespace ProjectEuler
+﻿namespace ProjectEuler
 {
     public class App
     {
@@ -11,7 +8,7 @@ namespace ProjectEuler
         {
             var p1 = new Problem1(1000);
             $"there are {p1.Count} multiples, with sum {p1.Sum}".ToConsole();
-            "Press any key to continue".KeyPrompt();
+            "".ToConsole();
         }
 
         public void Problem2()
@@ -19,21 +16,31 @@ namespace ProjectEuler
             var p2 = new Problem2(4000000);
             var fib = p2.FibonacciSequence.SelectEvens();
             $"the sum of {fib.Count} items is {fib.Sum()}".ToConsole();
-            "Press any key to continue".KeyPrompt();
+            "".ToConsole();
+        }
+
+        public void Problem3()
+        {
+            var p3 = new Problem3(600851475143);
+            "".ToConsole();
         }
 
         public void Go()
         {
-            // Problem1();
+            Problem1();
             Problem2();
+            Problem3();
+            "Press enter to continue".KeyPrompt();
         }
     }
 
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            
             new App().Go();
         }
+
     }
 }

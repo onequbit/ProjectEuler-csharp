@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ProjectEuler
 {
@@ -21,6 +22,12 @@ namespace ProjectEuler
             Console.ReadKey();
         }
 
+        public static void EnterPrompt(this string prompt)
+        {
+            prompt.Print();
+            Console.ReadLine();
+        }
+
         public static int Sum(this HashSet<int> set)
         {
             int accumulator = 0;
@@ -29,6 +36,58 @@ namespace ProjectEuler
                 accumulator += i;
             }
             return accumulator;
+        }
+
+        public static int Sqrt(this int number)
+        {
+            return (int)Math.Sqrt(number);
+        }
+
+        public static long Sqrt(this long number)
+        {
+            return (long)Math.Sqrt(number);
+        }
+
+        public static List<string> ToStringList<T>(this IEnumerable<T> list)
+        {
+            List<string> output = new List<string> { };
+            foreach (var item in list)
+            {
+                output.Add(item.ToString());
+            }
+            return output;
+        }
+
+        public static void ToConsole<T>(this IEnumerable<T> list)
+        {
+            foreach (var item in list)
+            {
+                item.ToString().ToConsole();
+            }
+        }
+
+        public static bool IsEmpty<T>(this HashSet<T> collection)
+        {
+            return collection.Count == 0;
+        }
+
+        public static void ToConsole<T>(
+            this IEnumerable<T> list, string formatStr = "")
+        {
+            foreach(var item in list)
+            {
+                string.Format(formatStr,item).ToConsole();                
+            }
+        }
+
+        public static bool IsMultipleOf(this int A, int B)
+        {
+            return A % B == 0;
+        }
+
+        public static bool IsMultipleOf(this long A, long B)
+        {
+            return A % B == 0;
         }
     }
 }

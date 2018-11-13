@@ -25,7 +25,8 @@ namespace ProjectEuler
 
         public Problem2(int maxValue)
         {            
-            _maxValue = maxValue;            
+            _maxValue = maxValue;
+            "*Problem 2*".ToConsole();
         }
 
         public HashSet<int> GetFibonacciSequence(int maxVal)
@@ -55,17 +56,6 @@ namespace ProjectEuler
             }
             return fib;
         }
-
-        //public HashSet<int> GetMultiplesOf(int num)
-        //{
-        //    HashSet<int> set = new HashSet<int> { };
-        //    for (int i = 1; i < _limit; i++)
-        //    {
-        //        if (i.IsMultipleOf(num))
-        //            set.Add(i);
-        //    }                
-        //    return set;
-        //}
 
     }
 

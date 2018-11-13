@@ -47,10 +47,6 @@ namespace ProjectEuler
 
     public static partial class ExtensionMethods
     {
-        public static bool IsMultipleOf(this int A, int B)
-        {
-            return A % B == 0;
-        }
 
         public static HashSet<T> CopyWith<T>(this HashSet<T> set, HashSet<T> otherSet)
         {
@@ -61,8 +57,6 @@ namespace ProjectEuler
                 newSet.Add(item);
             return newSet;
         }
-
-        
         
     }
 }
