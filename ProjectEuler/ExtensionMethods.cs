@@ -58,12 +58,26 @@ namespace ProjectEuler
             return output;
         }
 
+        public static T[] ToArray<T>(this IEnumerable<T> source)
+        {
+            return new List<T>(source).ToArray();
+        }
+
+        public static string Join<T>(this T[] array, string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i=0; i<array.Length; i++)
+            {
+                sb.Append(array[i]);
+                if (i != array.Length - 1)
+                    sb.Append(str);
+            }
+            return sb.ToString();
+        }
+
         public static void ToConsole<T>(this IEnumerable<T> list)
         {
-            foreach (var item in list)
-            {
-                item.ToString().ToConsole();
-            }
+            list.ToArray().Join(",").ToConsole();            
         }
 
         public static bool IsEmpty<T>(this HashSet<T> collection)

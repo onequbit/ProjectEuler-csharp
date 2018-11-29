@@ -5,15 +5,15 @@ using System.Linq;
 
 namespace ProjectEuler
 {
-    /*
-     Multiples of 3 and 5
-     Problem 1 
-     If we list all the natural numbers below 10 that are multiples of 3 or 5, 
-     we get 3, 5, 6 and 9. The sum of these multiples is 23.
-
-     Find the sum of all the multiples of 3 or 5 below 1000.
-    */
-
+    /// <summary>
+    /// Multiples of 3 and 5
+    /// </summary>
+    /// <remarks>
+    /// If we list all the natural numbers below 10 that are multiples of 3 or 5, 
+    /// we get 3, 5, 6 and 9. The sum of these multiples is 23.
+    /// Find the sum of all the multiples of 3 or 5 below 1000.
+    /// </remarks>
+    
     public class Problem1
     {
         private int _limit = 0;
@@ -23,6 +23,7 @@ namespace ProjectEuler
             _multiplesOf3.CopyWith(_multiplesOf5);
         public int Count => Multiples.Count;
         public int Sum => Multiples.Sum();
+        public string Answer => _getOutput();
 
         public Problem1(int limit)
         {
@@ -41,6 +42,11 @@ namespace ProjectEuler
                     set.Add(i);
             }                
             return set;
+        }
+
+        private string _getOutput()
+        {
+            return $"there are {Count} multiples, with sum {Sum}";
         }
 
     }
