@@ -20,7 +20,7 @@ namespace ProjectEuler
         public string Answer => _getOutput();
         public Problem4()
         {
-            "*Problem 3*".ToConsole();
+            "*Problem 4*".ToConsole();
         }
 
         public int DoSearch()

@@ -30,15 +30,8 @@
 
         public void Problem5()
         {
-            "Problem 5 - test".ToConsole();
-            "9...".ToConsole();
-            9.GetFactors().ToConsole();
-            "10...".ToConsole();
-            10.GetFactors().ToConsole();
-            "20...".ToConsole();
-            int twenty = 20;
-            twenty.GetFactors().ToConsole();
-
+            var p5 = new Problem5(20);
+            p5.Answer.ToConsole();            
         }
 
         public void Go()
