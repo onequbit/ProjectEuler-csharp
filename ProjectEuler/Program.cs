@@ -42,6 +42,14 @@
             Problem3();
             Problem4();
             Problem5();
+
+            @"TODO:
+Fix the method in Problem5 that obtains 
+the set of primes that are multiples of 
+themselves less than the limit.
+
+".ToConsole();
+
             "Press enter to continue".KeyPrompt();
         }
     }

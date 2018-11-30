@@ -20,6 +20,11 @@ namespace ProjectEuler
         private HashSet<int> _primes;
         private HashSet<int> _factors;
 
+        public Problem5()
+        {
+            _input = 0;
+        }
+
         public Problem5(int input)
         {
             _input = input;
@@ -28,16 +33,17 @@ namespace ProjectEuler
 
         private string _getOutput()
         {
-            _primes = GetPrimes(_input);            
-            _factors = GetInnerPowers(_input, _primes);            
+            _primes = GetPrimesUpTo(_input);
+            _factors = GetInnerPrimePowersUpTo(_input); //, _primes);            
             List<int> numbers = _primes.ToList().Concat(_factors.ToList()).ToList();
             string listStr = numbers.ToArray().Join("x");
             return $"{listStr} = {numbers.Product()}";
         }
 
-        public HashSet<int> GetPrimes(int limit)
+        public HashSet<int> GetPrimesUpTo(int limit)
         {
             HashSet<int> result = new HashSet<int> { };
+            if (limit <= 1) return result;
             for (int i=limit; i>1; i--)
             {
                 if (i.IsPrime())
@@ -46,27 +52,17 @@ namespace ProjectEuler
             return result;
         }
 
-        public HashSet<int> GetInnerPowers(int limit, HashSet<int> set)
+        public HashSet<int> GetInnerPrimePowersUpTo(int limit)
         {
             HashSet<int> result = new HashSet<int> { };
-            foreach(var item in set)
+            if (limit <= 1) return result;
+            var set = GetPrimesUpTo(limit);
+            foreach (var item in set)
             {
                 int itemPowers = (int)(System.Math.Log(limit) / System.Math.Log(item));
-                if (itemPowers > 1) result.Add((int)Math.Pow(item, itemPowers-1));
+                if (itemPowers > 1) result.Add((int)Math.Pow(item, itemPowers - 1));
             }
             return result;
-        }
-
-        private void oldtest()
-        {
-            "Problem 5 - test".ToConsole();
-            "9...".ToConsole();
-            9.GetFactors().ToConsole();
-            "10...".ToConsole();
-            10.GetFactors().ToConsole();
-            "20...".ToConsole();
-            int twenty = 20;
-            twenty.GetFactors().ToConsole();
         }
     }
 
@@ -113,6 +109,27 @@ namespace ProjectEuler
         public static int Product(this IEnumerable<int> set)
         {
             return set.Aggregate(1, (x, y) => x *= y );            
+        }
+
+        public static List<int> RangeTo(this int start, int end)
+        {            
+            List<int> set = new List<int> { };
+            if (start - end > 0)
+            {
+                for (int i = start; i >= end; i--)
+                {
+                    set.Add(i);
+                }
+            }
+            else
+            {
+                for (int i = start; i <= end; i++)
+                {
+                    set.Add(i);
+                }
+            }
+         
+            return set;
         }
 
     }
