@@ -34,10 +34,28 @@ namespace ProjectEuler
         private string _getOutput()
         {
             _primes = GetPrimesUpTo(_input);
-            _factors = GetInnerPrimePowersUpTo(_input); //, _primes);            
+            _factors = GetInnerPrimePowersUpTo(_input);
             List<int> numbers = _primes.ToList().Concat(_factors.ToList()).ToList();
+            numbers = RemoveExtraMultiples(numbers, _input);
             string listStr = numbers.ToArray().Join("x");
             return $"{listStr} = {numbers.Product()}";
+        }
+
+        public List<int> RemoveExtraMultiples(List<int> numbers, int limit)
+        {            
+            List<int> result = numbers.Copy();
+            foreach (int n in numbers)
+            {
+                for (int power = 2; Math.Pow(n, power) < limit; power++)
+                {
+                    if (numbers.Contains((int)Math.Pow(n,power)))
+                    {
+                        result.Remove(n);
+                        break;
+                    }
+                }
+            }
+            return result.ToList();
         }
 
         public HashSet<int> GetPrimesUpTo(int limit)
@@ -60,10 +78,19 @@ namespace ProjectEuler
             foreach (var item in set)
             {
                 int itemPowers = (int)(System.Math.Log(limit) / System.Math.Log(item));
-                if (itemPowers > 1) result.Add((int)Math.Pow(item, itemPowers - 1));
+                if (itemPowers > 1)
+                {
+                    result.Add((int)Math.Pow(item, itemPowers));
+                }
             }
             return result;
         }
+
+        public void InnerPrimePowers()
+        {
+
+        }
+
     }
 
     public static partial class ExtensionMethods
@@ -106,9 +133,9 @@ namespace ProjectEuler
             return set;
         }
 
-        public static int Product(this IEnumerable<int> set)
+        public static long Product(this IEnumerable<int> set)
         {
-            return set.Aggregate(1, (x, y) => x *= y );            
+            return set.Aggregate((long)1, (x,y) => x = (long)(x*y) );            
         }
 
         public static List<int> RangeTo(this int start, int end)
@@ -130,6 +157,13 @@ namespace ProjectEuler
             }
          
             return set;
+        }
+
+        public static List<T> Copy<T>(this List<T> set)
+        {
+            T[] temp = new T[set.Count];
+            set.CopyTo(temp);
+            return temp.ToList<T>();
         }
 
     }

@@ -31,7 +31,10 @@
         public void Problem5()
         {
             var p5 = new Problem5(20);
-            p5.Answer.ToConsole();            
+            p5.Answer.ToConsole();
+            //System.Environment.NewLine.ToConsole();
+            //p5 = new Problem5(30);
+            //p5.Answer.ToConsole();
         }
 
         public void Go()
@@ -41,15 +44,7 @@
             Problem2();
             Problem3();
             Problem4();
-            Problem5();
-
-            @"TODO:
-Fix the method in Problem5 that obtains 
-the set of primes that are multiples of 
-themselves less than the limit.
-
-".ToConsole();
-
+            Problem5();            
             "Press enter to continue".KeyPrompt();
         }
     }
