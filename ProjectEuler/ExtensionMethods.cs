@@ -58,6 +58,11 @@ namespace ProjectEuler
             return output;
         }
 
+        public static string NumberString<T>(this IEnumerable<T> set)
+        {
+            return set.ToArray().Join(",");
+        }
+
         public static T[] ToArray<T>(this IEnumerable<T> source)
         {
             return new List<T>(source).ToArray();
@@ -102,6 +107,32 @@ namespace ProjectEuler
         public static bool IsMultipleOf(this long A, long B)
         {
             return A % B == 0;
+        }
+
+        public static void ForEach<T>(this IEnumerable<T> source, Action<T> action)
+        {
+            source.ThrowIfNull("source");
+            action.ThrowIfNull("action");
+            foreach (T element in source)
+            {
+                action(element);
+            }
+        }
+
+        public static List<T> ForEach<T>(this List<T> source, Func<T, T> action)
+        {
+            List<T> result = new List<T> { };
+            source.ThrowIfNull("source");            
+            foreach (T element in source)
+            {
+                result.Add(action(element));
+            }
+            return result;
+        }
+
+        public static void ThrowIfNull(this object thing, string message = "")
+        {
+            if (thing == null) throw new NullReferenceException();
         }
     }
 }

@@ -32,19 +32,23 @@
         {
             var p5 = new Problem5(20);
             p5.Answer.ToConsole();
-            //System.Environment.NewLine.ToConsole();
-            //p5 = new Problem5(30);
-            //p5.Answer.ToConsole();
+        }
+
+        public void Problem6()
+        {
+            var p6 = new Problem6(100);
+            p6.Answer.ToConsole();
         }
 
         public void Go()
         {
 
-            Problem1();
-            Problem2();
-            Problem3();
-            Problem4();
-            Problem5();            
+            //Problem1();
+            //Problem2();
+            //Problem3();
+            //Problem4();
+            //Problem5();            
+            Problem6();
             "Press enter to continue".KeyPrompt();
         }
     }

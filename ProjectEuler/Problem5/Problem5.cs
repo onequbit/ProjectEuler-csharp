@@ -85,12 +85,6 @@ namespace ProjectEuler
             }
             return result;
         }
-
-        public void InnerPrimePowers()
-        {
-
-        }
-
     }
 
     public static partial class ExtensionMethods
