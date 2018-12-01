@@ -68,7 +68,7 @@ namespace ProjectEuler
                     result.Add(i);
             }
             return result;
-        }
+        }        
 
         public HashSet<int> GetInnerPrimePowersUpTo(int limit)
         {
@@ -86,79 +86,5 @@ namespace ProjectEuler
             return result;
         }
     }
-
-    public static partial class ExtensionMethods
-    {
-
-        public static HashSet<int> GetFactors(this int number)
-        {
-            var longFactors = ((long)number).GetFactors();            
-            HashSet<int> intFactors = new HashSet<int> { };
-            foreach(long f in longFactors)
-            {
-                intFactors.Add((int)f);
-                intFactors.Add((int)(number / f));
-            }
-            return intFactors;                
-        }
-
-        public static bool IsPrime(this int number)
-        {
-            return ((long)number).IsPrime();           
-        }
-
-        public static HashSet<int> GetPrimeFactors(this int number)
-        {
-            var longFactors = ((long)number).GetPrimeFactors();
-            HashSet<int> intFactors = new HashSet<int> { };
-            foreach (long f in longFactors)
-            {
-                intFactors.Add((int)f);
-            }
-            return intFactors;
-        }
-
-        public static HashSet<T> AddRange<T>(this HashSet<T> set, HashSet<T> otherset)
-        {            
-            foreach (var item in otherset)
-            {
-                set.Add(item);
-            }
-            return set;
-        }
-
-        public static long Product(this IEnumerable<int> set)
-        {
-            return set.Aggregate((long)1, (x,y) => x = (long)(x*y) );            
-        }
-
-        public static List<int> RangeTo(this int start, int end)
-        {            
-            List<int> set = new List<int> { };
-            if (start - end > 0)
-            {
-                for (int i = start; i >= end; i--)
-                {
-                    set.Add(i);
-                }
-            }
-            else
-            {
-                for (int i = start; i <= end; i++)
-                {
-                    set.Add(i);
-                }
-            }
-         
-            return set;
-        }
-
-        public static List<T> Copy<T>(this List<T> set)
-        {
-            T[] temp = new T[set.Count];
-            set.CopyTo(temp);
-            return temp.ToList<T>();
-        }
-
-    }
+    
 }

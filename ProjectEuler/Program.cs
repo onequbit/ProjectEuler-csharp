@@ -40,15 +40,22 @@
             p6.Answer.ToConsole();
         }
 
+        public void Problem7()
+        {
+            var p7 = new Problem7(10001);
+            p7.Answer.ToConsole();
+        }
+
         public void Go()
         {
 
-            //Problem1();
-            //Problem2();
-            //Problem3();
-            //Problem4();
-            //Problem5();            
+            Problem1();
+            Problem2();
+            Problem3();
+            Problem4();
+            Problem5();
             Problem6();
+            Problem7();
             "Press enter to continue".KeyPrompt();
         }
     }

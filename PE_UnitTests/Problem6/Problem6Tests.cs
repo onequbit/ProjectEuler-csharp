@@ -13,9 +13,9 @@ namespace PE_UnitTests
         public void VerifySummationFunctions()
         {
             // Arrange
-            var unitUnderTest = new Problem6();
             int limit = 10;
-
+            var unitUnderTest = new Problem6();
+            
             // Act
             var quickResult = unitUnderTest.QuickRangeSum(limit);
             var calcResult = unitUnderTest.CalcRangeSum(limit);

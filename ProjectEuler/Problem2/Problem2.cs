@@ -64,24 +64,8 @@ namespace ProjectEuler
 
     }
 
-    public static partial class Extensionmethods
-    {
-        public static void PrintLines(this HashSet<int> set, string extra = "")
-        {
-            for (int i=0; i<set.Count; i++)            
-            {
-                $"{extra}[{i}]: {set.ElementAt(i)}".ToConsole();
-            }
-        }
-
-        public static HashSet<int> SelectEvens(this HashSet<int> set)
-        {
-            HashSet<int> result = new HashSet<int> { };
-            foreach(var item in set)
-            {
-                if (item % 2 == 0) result.Add(item);
-            }
-            return result;            
-        }
-    }
+    //public static partial class Extensionmethods
+    //{
+        
+    //}
 }

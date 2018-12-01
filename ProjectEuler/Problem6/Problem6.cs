@@ -27,6 +27,12 @@ namespace ProjectEuler
         private int _squareOfSum => GetSquareSum(_range);
         private int _difference => _sumOfSquares - _squareOfSum;
 
+        public Problem6()
+        {
+            "*Problem 6*".ToConsole();
+            _limit = 0;
+        }
+
         public Problem6(int limit)
         {
             "*Problem 6*".ToConsole();
@@ -66,11 +72,8 @@ namespace ProjectEuler
 
     }
 
-    public static partial class ExtensionMethods
-    {
-        public static int Sum(this IEnumerable<int> set)
-        {
-            return set.Aggregate(0, (x, y) => x = x + y);
-        }
-    }
+    //public static partial class ExtensionMethods
+    //{
+        
+    //}
 }

@@ -51,18 +51,8 @@ namespace ProjectEuler
 
     }
 
-    public static partial class ExtensionMethods
-    {
-
-        public static HashSet<T> CopyWith<T>(this HashSet<T> set, HashSet<T> otherSet)
-        {
-            HashSet<T> newSet = new HashSet<T> { };
-            foreach (var item in set)
-                newSet.Add(item);
-            foreach (var item in otherSet)
-                newSet.Add(item);
-            return newSet;
-        }
+    //public static partial class ExtensionMethods
+    //{
         
-    }
+    //}
 }
