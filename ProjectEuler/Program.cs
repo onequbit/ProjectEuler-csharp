@@ -46,17 +46,25 @@
             p7.Answer.ToConsole();
         }
 
+        public void Problem8()
+        {
+            var p8 = new Problem8();
+            p8.Answer.ToConsole();
+        }
+
         public void Go()
         {
 
-            Problem1();
-            Problem2();
-            Problem3();
-            Problem4();
-            Problem5();
-            Problem6();
-            Problem7();
+            //Problem1();
+            //Problem2();
+            //Problem3();
+            //Problem4();
+            //Problem5();
+            //Problem6();
+            //Problem7();
+            Problem8();
             "Press enter to continue".KeyPrompt();
+
         }
     }
 
