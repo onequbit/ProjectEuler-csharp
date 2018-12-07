@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using ProjectEuler;
 using System;
 using System.Collections.Generic;
+using CodeLibrary;
 
 namespace PE_UnitTests
 {

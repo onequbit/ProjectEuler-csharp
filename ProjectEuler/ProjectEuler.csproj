@@ -6,4 +6,8 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\source\CodeLibrary\CodeLibrary\CodeLibrary.csproj" />
+  </ItemGroup>
+
 </Project>

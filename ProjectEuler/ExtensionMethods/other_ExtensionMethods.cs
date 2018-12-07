@@ -7,7 +7,6 @@ namespace ProjectEuler
 {
     public static partial class ExtensionMethods
     {
-        
 
         public static void ThrowIfNull(this object thing, string message = "")
         {

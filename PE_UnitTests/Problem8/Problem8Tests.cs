@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
+using CodeLibrary;
 using ProjectEuler;
 
 namespace PE_UnitTests

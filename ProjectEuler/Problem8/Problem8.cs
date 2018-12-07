@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using CodeLibrary;
 
 namespace ProjectEuler
 {
@@ -73,18 +74,16 @@ namespace ProjectEuler
         private string[] _subStrings => _getSubstrings();
         private string[] _canBeScanned => _getScannableStrings();
         private string[] _scanStrings => _getScanStrings();
-        private List<long> _products => _getProducts();
-
         public string[] subStrings => _subStrings;
         public string[] canBeScanned => _canBeScanned;
         public string[] scanStrings => _scanStrings;
-        public List<long> products => _products;
+        public List<long> products => _getProducts();
         public string Answer => _getOutput();
 
         public Problem8()
         {
             NUMBERSTRING.ToConsole();
-            "".ToConsole();
+            "*Problem 8*".ToConsole();
         }
 
         private string _getOutput()

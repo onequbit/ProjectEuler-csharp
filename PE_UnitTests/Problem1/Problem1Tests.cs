@@ -1,26 +1,13 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using ProjectEuler;
 using System;
+using CodeLibrary;
 
 namespace PE_UnitTests
 {
     [TestClass]
     public class Problem1Tests
-    {
-        private MockRepository mockRepository;
-        
-        [TestInitialize]
-        public void TestInitialize()
-        {
-            this.mockRepository = new MockRepository(MockBehavior.Strict);            
-        }
-
-        [TestCleanup]
-        public void TestCleanup()
-        {
-            this.mockRepository.VerifyAll();
-        }
+    {        
         
         [TestMethod]
         public void DoListBelow_StateUnderTest_ExpectedBehavior()
@@ -43,8 +30,7 @@ namespace PE_UnitTests
             Assert.IsTrue(unitUnderTest.Sum == 78,
                 $"78 expected, {unitUnderTest.Sum} returned");
 
-        }
-        
+        }       
 
     }
 }

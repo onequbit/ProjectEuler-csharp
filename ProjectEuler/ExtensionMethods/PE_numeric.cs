@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CodeLibrary;
 
 namespace ProjectEuler
 {
-    public static partial class ExtensionMethods
+    public static partial class PE_ExtensionMethods
     {
         
         #region int

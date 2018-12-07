@@ -1,4 +1,6 @@
-﻿namespace ProjectEuler
+﻿using CodeLibrary;
+
+namespace ProjectEuler
 {
     public class App
     {
@@ -52,6 +54,12 @@
             p8.Answer.ToConsole();
         }
 
+        public void Problem9()
+        {
+            var p9 = new Problem9();
+            p9.Answer.ToConsole();
+        }
+
         public void Go()
         {
 
@@ -62,7 +70,8 @@
             //Problem5();
             //Problem6();
             //Problem7();
-            Problem8();
+            //Problem8();
+            Problem9();
             "Press enter to continue".KeyPrompt();
 
         }
