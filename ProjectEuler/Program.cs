@@ -56,7 +56,7 @@ namespace ProjectEuler
 
         public void Problem9()
         {
-            var p9 = new Problem9();
+            var p9 = new Problem9(1000);
             p9.Answer.ToConsole();
         }
 
