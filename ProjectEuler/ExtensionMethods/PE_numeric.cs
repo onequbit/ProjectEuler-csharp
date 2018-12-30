@@ -7,8 +7,21 @@ namespace ProjectEuler
 {
     public static partial class PE_ExtensionMethods
     {
-        
+
+        private static HashSet<int> _foundPrimesInt = new HashSet<int> { };
+        private static HashSet<long> _foundPrimesLong = new HashSet<long> { };
+
         #region int
+
+        public static long Sum(this long[] set)
+        {
+            long sum = 0;
+            foreach(var number in set)
+            {
+                sum += number;
+            }
+            return sum;
+        }
 
         public static int Sqrt(this int number)
         {
@@ -33,9 +46,11 @@ namespace ProjectEuler
         }
 
         public static bool IsPrime(this int number)
-        {            
+        {
+            if (_foundPrimesInt.Contains(number)) return true;
             var factors = number.GetFactors();
-            bool isPrime = factors.IsEmpty();         
+            bool isPrime = factors.IsEmpty();
+            if (isPrime) _foundPrimesInt.Add(number);
             return isPrime;
         }
 
@@ -87,8 +102,10 @@ namespace ProjectEuler
 
         public static bool IsPrime(this long number)
         {
+            if (_foundPrimesLong.Contains(number)) return true;
             var factors = number.GetFactors();
             bool isPrime = factors.IsEmpty();
+            if (isPrime) _foundPrimesLong.Add(number);
             return isPrime;
         }
 

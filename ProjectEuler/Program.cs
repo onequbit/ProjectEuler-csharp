@@ -60,6 +60,12 @@ namespace ProjectEuler
             p9.Answer.ToConsole();
         }
 
+        public void Problem10()
+        {
+            var p10 = new Problem10(2000000);
+            p10.Answer.ToConsole();
+        }
+
         public void Go()
         {
 
@@ -68,10 +74,12 @@ namespace ProjectEuler
             //Problem3();
             //Problem4();
             //Problem5();
+            //"Press enter to continue".KeyPrompt();
             //Problem6();
             //Problem7();
             //Problem8();
-            Problem9();
+            //Problem9();
+            Problem10();
             "Press enter to continue".KeyPrompt();
 
         }

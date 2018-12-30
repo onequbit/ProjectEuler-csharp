@@ -63,13 +63,21 @@ namespace ProjectEuler
         {
             HashSet<int> result = new HashSet<int> { };
             if (limit <= 1) return result;
-            for (int i=limit; i>1; i--)
+            for (int i = 2; i < limit; i++)
             {
                 if (i.IsPrime())
+                {
                     result.Add(i);
+                    Console.Write($"{i},");
+                }
             }
+            //for (int i=limit; i>1; i--)
+            //{
+            //    if (i.IsPrime())
+            //        result.Add(i);
+            //}
             return result;
-        }        
+        }
 
         public HashSet<int> GetInnerPrimePowersUpTo(int limit)
         {
