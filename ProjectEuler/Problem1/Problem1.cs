@@ -51,7 +51,7 @@ namespace ProjectEuler
             return $"there are {Count} multiples below {_limit}, with sum {Sum}";
         }
 
-        public void ShowAnswer(long problemSize)
+        public void ShowAnswer(object problemSize)
         {
             _limit = (int)problemSize;
             _multiplesOf3 = GetMultiplesOf(3);

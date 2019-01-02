@@ -14,7 +14,7 @@ namespace ProjectEuler
     /// What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
     /// </remarks>
     
-    public class Problem5
+    public class Problem5 : IPEProblem
     {
         private int _input;
         public string Answer => _getOutput();
@@ -22,14 +22,18 @@ namespace ProjectEuler
         private HashSet<int> _factors;
 
         public Problem5()
-        {
-            _input = 0;
-        }
+        { }
 
         public Problem5(int input)
         {
-            _input = input;
+            ShowAnswer(input);            
+        }
+
+        public void ShowAnswer(object problemSize)
+        {
+            _input = (int)problemSize;
             "*Problem 5*".ToConsole();
+            Answer.ToConsole();
         }
 
         private string _getOutput()
@@ -70,12 +74,7 @@ namespace ProjectEuler
                     result.Add(i);
                     Console.Write($"{i},");
                 }
-            }
-            //for (int i=limit; i>1; i--)
-            //{
-            //    if (i.IsPrime())
-            //        result.Add(i);
-            //}
+            }            
             return result;
         }
 
@@ -94,6 +93,8 @@ namespace ProjectEuler
             }
             return result;
         }
+
+        
     }
     
 }

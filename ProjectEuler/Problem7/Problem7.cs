@@ -11,24 +11,27 @@ namespace ProjectEuler
     /// </summary>
     /// <remarks>
     /// By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
-    /// What is the 10 001st prime number?
+    /// What is the 10001st prime number?
     /// </remarks>
-    public class Problem7
+    public class Problem7 : IPEProblem
     {
         private int _limit;
         
         public string Answer => _getOutput();
         public Problem7()
-        {
-            "*Problem 7*".ToConsole();
-            _primes = new List<int> { };
-        }
+        { }
 
         public Problem7(int limit)
         {
+            ShowAnswer(limit);
+        }
+
+        public void ShowAnswer(object problemSize)
+        {
             "*Problem 7*".ToConsole();
+            _limit = (int)problemSize;
             _primes = new List<int> { };
-            _limit = limit;
+            Answer.ToConsole();            
         }
 
         private string _getOutput()
@@ -83,9 +86,9 @@ namespace ProjectEuler
             }            
             return found;
             
-        }         
+        }
 
-        
+       
     }
 
 }

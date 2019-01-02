@@ -31,7 +31,7 @@ namespace ProjectEuler
             ShowAnswer(maxValue);            
         }
 
-        public void ShowAnswer(long problemSize)
+        public void ShowAnswer(object problemSize)
         {
             _maxValue = (int)problemSize;
             "*Problem 2*".ToConsole();

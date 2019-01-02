@@ -47,7 +47,7 @@ namespace ProjectEuler
      * shorter sequences, provided they are at least 13 
      * digits in length.
      */
-    public class Problem8
+    public class Problem8 : IPEProblem
     {
         private const string NUMBERSTRING =
             "73167176531330624919225119674426574742355349194934" +
@@ -81,9 +81,13 @@ namespace ProjectEuler
         public string Answer => _getOutput();
 
         public Problem8()
+        { }
+
+        public void ShowAnswer(object problemSize)
         {
-            NUMBERSTRING.ToConsole();
             "*Problem 8*".ToConsole();
+            NUMBERSTRING.ToConsole();
+            Answer.ToConsole();            
         }
 
         private string _getOutput()
@@ -122,6 +126,7 @@ namespace ProjectEuler
             }
             return products;
         }
+
         
     }
 

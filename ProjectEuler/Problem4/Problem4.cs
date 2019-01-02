@@ -15,13 +15,19 @@ namespace ProjectEuler
     /// 9009 = 91 × 99.
     /// Find the largest palindrome made from the product of two 3-digit numbers.
     /// </remarks>
-    public class Problem4
+    public class Problem4 : IPEProblem
     {        
         public int Palindrome => DoSearch();
         public string Answer => _getOutput();
         public Problem4()
         {
+            
+        }
+
+        public void ShowAnswer(object problemSize = null)
+        {
             "*Problem 4*".ToConsole();
+            Answer.ToConsole();
         }
 
         public int DoSearch()
@@ -54,6 +60,8 @@ namespace ProjectEuler
         {
             return $"largest palindrome product of two 3-digit numbers is {Palindrome}";
         }
+
+        
     }
 
     //public static partial class ExtensionMethods

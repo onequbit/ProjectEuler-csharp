@@ -29,9 +29,9 @@ namespace ProjectEuler
             ShowAnswer(number);                        
         }
 
-        public void ShowAnswer(long problemSize)
+        public void ShowAnswer(object problemSize)
         {
-            _number = problemSize;
+            _number = (long)problemSize;
             "*Problem 3*".ToConsole();
             Answer.ToConsole();
         }        

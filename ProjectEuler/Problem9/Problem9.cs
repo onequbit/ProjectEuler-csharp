@@ -19,22 +19,31 @@ namespace ProjectEuler
     /// Find the product abc.
     /// </remarks>
 
-    public class Problem9
+    public class Problem9 : IPEProblem
     {
         private int _limit;
         public string Answer => _getOutput();
+
+        public Problem9()
+        { }
+
+        public Problem9(int limit)
+        {
+            ShowAnswer(limit);
+        }
+
+        public void ShowAnswer(object problemSize)
+        {
+            "*Problem 9*".ToConsole();
+            _limit = (int)problemSize;
+            Answer.ToConsole();
+        }
 
         private string _getOutput()
         {
             var answer = _findTriplets(_limit);
             int product = answer.Item1 * answer.Item2 * answer.Item3;
             return $"{answer} => {product}";            
-        }
-
-        public Problem9(int limit)
-        {
-            "*Problem 9*".ToConsole();
-            _limit = limit;
         }
 
         /// <summary>
@@ -69,9 +78,8 @@ namespace ProjectEuler
                 t.Item1 + t.Item2 + t.Item3 == limit
             ).FirstOrDefault();
         }
+
         
-
-
     }
 
     public static partial class ExtensionMethods

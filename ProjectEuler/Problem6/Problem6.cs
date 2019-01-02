@@ -19,7 +19,7 @@ namespace ProjectEuler
     /// Find the difference between the sum of the squares of the 
     /// first one hundred natural numbers and the square of the sum.
     /// </remarks>
-    public class Problem6
+    public class Problem6 : IPEProblem
     {
         public string Answer => _getOutput();
         private int _limit;
@@ -29,15 +29,18 @@ namespace ProjectEuler
         private int _difference => _sumOfSquares - _squareOfSum;
 
         public Problem6()
-        {
-            "*Problem 6*".ToConsole();
-            _limit = 0;
-        }
+        { }
 
         public Problem6(int limit)
         {
+            ShowAnswer(limit);
+        }
+
+        public void ShowAnswer(object problemSize)
+        {
             "*Problem 6*".ToConsole();
-            _limit = limit;            
+            _limit = (int)problemSize;
+            Answer.ToConsole();            
         }
 
         private string _getOutput()
@@ -71,6 +74,7 @@ namespace ProjectEuler
             return sum * sum;
         }
 
+        
     }
 
     //public static partial class ExtensionMethods

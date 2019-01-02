@@ -5,7 +5,7 @@ using CodeLibrary;
 
 namespace ProjectEuler
 {
-    public class Problem10
+    public class Problem10 : IPEProblem
     {
         /// <summary>
         /// Summation of primes
@@ -15,33 +15,43 @@ namespace ProjectEuler
         /// Find the sum of all the primes below two million.
         /// </remarks>
         /// 
-        public Problem10(long limit)
+
+        public Problem10()
+        { }
+
+        public Problem10(int limit)
         {
-            "*Problem 10*".ToConsole();
-            _limit = limit;            
+            ShowAnswer(limit);
         }
 
-        private long _limit = 0;
+        public void ShowAnswer(object problemSize)
+        {
+            "*Problem 10*".ToConsole();
+            _limit = (int)problemSize;
+            Answer.ToConsole();
+        }
+
+        private int _limit = 0;
 
         public string Answer => _getOutput();
 
-        public long[] Primes => _getPrimes(_limit);
+        private long[] _primes => _getPrimes(_limit);
 
-        private long[] _getPrimes(long limit)
+        private long[] _getPrimes(int limit)
         {
             return GetPrimesUpTo(limit).ToArray();
         }
 
-        public HashSet<long> GetPrimesUpTo(long limit)
+        public HashSet<long> GetPrimesUpTo(int limit)
         {
             HashSet<long> result = new HashSet<long> { };
             if (limit <= 1) return result;
-            for (long i = 2; i < limit; i++)
+            for (int i = 2; i < limit; i++)
             {
                 if (i.IsPrime())
                 {
                     result.Add(i);
-                    Console.Write($"{i},");
+                    // Console.Write($"{i},");
                 }
             }            
             return result;
@@ -49,9 +59,10 @@ namespace ProjectEuler
 
         private string _getOutput()
         {
-            long sum = Primes.Sum();
+            long sum = _primes.Sum();
             return $"sum of primes under {_limit}: {sum}";
         }
 
+        
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 namespace ProjectEuler
 {
     public interface IPEProblem
-    {
-        void ShowAnswer(long problemSize);
+    {        
+        void ShowAnswer(object problemSize);
     }
 }
