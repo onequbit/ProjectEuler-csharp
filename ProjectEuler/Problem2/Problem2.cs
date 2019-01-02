@@ -17,16 +17,25 @@ namespace ProjectEuler
     ///exceed four million, find the sum of the even-valued terms.
     ///</remarks>
      
-    public class Problem2
+    public class Problem2 : IPEProblem
     {
         private int _maxValue = 0;
         public string Answer => _getOutput();
         public HashSet<int> FibonacciSequence => _getFibonacciSequence(_maxValue);        
 
+        public Problem2()
+        { }
+
         public Problem2(int maxValue)
-        {            
-            _maxValue = maxValue;
+        {
+            ShowAnswer(maxValue);            
+        }
+
+        public void ShowAnswer(long problemSize)
+        {
+            _maxValue = (int)problemSize;
             "*Problem 2*".ToConsole();
+            Answer.ToConsole();
         }
 
         private HashSet<int> _getFibonacciSequence(int maxVal)
@@ -63,6 +72,7 @@ namespace ProjectEuler
             return $"the sum of {fib.Count} items is {fib.Sum()}";
         }
 
+        
     }
 
     //public static partial class Extensionmethods

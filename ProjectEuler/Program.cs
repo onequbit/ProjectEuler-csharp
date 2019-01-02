@@ -2,22 +2,11 @@
 
 namespace ProjectEuler
 {
+    
     public class App
     {
         public App() { }
-
-        public void Problem1()
-        {
-            var p1 = new Problem1(1000);
-            p1.Answer.ToConsole();            
-        }
-
-        public void Problem2()
-        {
-            var p2 = new Problem2(4000000);
-            p2.Answer.ToConsole();            
-        }
-
+                
         public void Problem3()
         {
             var p3 = new Problem3(600851475143);
@@ -66,11 +55,17 @@ namespace ProjectEuler
             p10.Answer.ToConsole();
         }
 
+        public void Show(IPEProblem problem, long lsize)
+        {
+            problem.ShowAnswer(lsize);
+            "Press enter to continue".KeyPrompt();
+        }
+
         public void Go()
         {
-
-            //Problem1();
-            //Problem2();
+            Show(new Problem1(), 1000);
+            Show(new Problem2(), 4000000);
+            Show(new Problem3(), 600851475143);
             //Problem3();
             //Problem4();
             //Problem5();
@@ -79,8 +74,8 @@ namespace ProjectEuler
             //Problem7();
             //Problem8();
             //Problem9();
-            Problem10();
-            "Press enter to continue".KeyPrompt();
+            // Problem10();
+            
 
         }
     }

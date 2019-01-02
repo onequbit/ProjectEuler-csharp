@@ -15,7 +15,7 @@ namespace ProjectEuler
     /// Find the sum of all the multiples of 3 or 5 below 1000.
     /// </remarks>
     
-    public class Problem1
+    public class Problem1 : IPEProblem
     {
         private int _limit = 0;
         private HashSet<int> _multiplesOf3;
@@ -26,12 +26,13 @@ namespace ProjectEuler
         public int Sum => Multiples.Sum();
         public string Answer => _getOutput();
 
+        public Problem1()
+        {            
+        }
+
         public Problem1(int limit)
         {
-            "*Problem 1*".ToConsole();
-            _limit = limit;
-            _multiplesOf3 = GetMultiplesOf(3);
-            _multiplesOf5 = GetMultiplesOf(5);
+            ShowAnswer(limit);               
         }
 
         public HashSet<int> GetMultiplesOf(int num)
@@ -47,9 +48,17 @@ namespace ProjectEuler
 
         private string _getOutput()
         {
-            return $"there are {Count} multiples, with sum {Sum}";
+            return $"there are {Count} multiples below {_limit}, with sum {Sum}";
         }
 
+        public void ShowAnswer(long problemSize)
+        {
+            _limit = (int)problemSize;
+            _multiplesOf3 = GetMultiplesOf(3);
+            _multiplesOf5 = GetMultiplesOf(5);
+            "*Problem 1*".ToConsole();
+            this.Answer.ToConsole();
+        }
     }
 
     //public static partial class ExtensionMethods
