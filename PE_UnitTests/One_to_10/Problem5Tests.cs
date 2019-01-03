@@ -4,14 +4,14 @@ using System;
 using System.Collections.Generic;
 using CodeLibrary;
 
-namespace PE_UnitTests
+namespace PE_UnitTests.One_to_10
 {
     [TestClass]
     public class Problem5Tests
     {
 
         [TestMethod]
-        public void GetPrimesUpTo_StateUnderTest_ExpectedBehavior()
+        public void GetPrimesUpTo_Test()
         {
             // Arrange                        
             // Act
@@ -23,7 +23,7 @@ namespace PE_UnitTests
         }
 
         [TestMethod]
-        public void GetInnerPrimePowersUpTo_StateUnderTest_ExpectedBehavior()
+        public void GetInnerPrimePowersUpTo_Test()
         {
             // Arrange            
             // Act
@@ -43,7 +43,7 @@ namespace PE_UnitTests
         }
 
         [TestMethod]
-        public void RangeTo_ExtensionMethodTest_ExpectedBehavior()
+        public void RangeTo_Test()
         {
             var a1 = 1.RangeTo(10);            
             Assert.IsTrue(a1.Count == 10);
@@ -64,8 +64,6 @@ namespace PE_UnitTests
             var a5 = (-5).RangeTo(5);
             Assert.IsTrue(a5.Count == 11);
             a5.ToConsole();
-
-
         }
     }
 }

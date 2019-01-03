@@ -3,7 +3,7 @@ using CodeLibrary;
 using ProjectEuler;
 using System;
 
-namespace PE_UnitTests
+namespace PE_UnitTests.Eleven_to_20
 {
     [TestClass]
     public class Problem11Tests
@@ -119,10 +119,6 @@ namespace PE_UnitTests
     {
         public static bool IsEqualTo<T>(this T[] source, T[] target)
         {
-            #if DEBUG
-                source.ToConsole();
-                target.ToConsole();
-            #endif
             if (source.Length != target.Length) return false;
             int length = source.Length;
             for (int i = 0; i < length; i++)

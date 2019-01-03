@@ -3,7 +3,7 @@ using CodeLibrary;
 using ProjectEuler;
 using System;
 
-namespace PE_UnitTests
+namespace PE_UnitTests.One_to_10
 {
     [TestClass]
     public class Problem6Tests

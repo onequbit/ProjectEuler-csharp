@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CodeLibrary;
 using ProjectEuler;
 
-namespace PE_UnitTests
+namespace PE_UnitTests.One_to_10
 {
     [TestClass]
     public class Problem8Tests

@@ -3,14 +3,14 @@ using CodeLibrary;
 using ProjectEuler;
 using System;
 
-namespace PE_UnitTests
+namespace PE_UnitTests.One_to_10
 {
     [TestClass]
     public class Problem7Tests
     {
         
         [TestMethod]
-        public void FindPrimes_StateUnderTest_ExpectedBehavior()
+        public void FindPrimes_Test()
         {
             // Arrange            
             // Act
@@ -20,7 +20,7 @@ namespace PE_UnitTests
         }
 
         [TestMethod]
-        public void Problem7_ExpectedBehavior()
+        public void Problem7_Test()
         {
             // Arrange              
             // Act

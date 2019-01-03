@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using ProjectEuler;
 
-namespace PE_UnitTests
+namespace PE_UnitTests.One_to_10
 {
     [TestClass]
     public class Problem3Tests

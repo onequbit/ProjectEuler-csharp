@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 
 
-namespace PE_UnitTests
+namespace PE_UnitTests.One_to_10
 {
     [TestClass]
     public class Problem10Tests
