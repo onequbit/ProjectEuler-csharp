@@ -35,8 +35,7 @@ namespace ProjectEuler
 
         private int _divisorLimit = 0;
         private int _number = 0;
-        private int _previous = 0;
-        public List<int> TriangleNumbers = new List<int> { };
+        private int _previous = 0;        
                 
         public Problem12()
         { }
@@ -59,41 +58,20 @@ namespace ProjectEuler
             Answer.ToConsole();
         }
 
-        public void GetNextTriangleNumber()
+        public IEnumerable<int> TriangleNumbers(int limit = 0)
         {
-            if (this.TriangleNumbers.Count > 0) this._previous = this.TriangleNumbers.Last();
-            this._number += 1;
-            this.TriangleNumbers.Add(this._number + this._previous);            
-        }
-
-        public static int[] GetTriangleNumbers(int limit)
-        {
-            var p = new Problem12();
-            for (int i = 0; i < limit; i++)
-            {
-                p.GetNextTriangleNumber();
+            int count = 0;
+            while (true)            
+            {                
+                _number += 1;
+                int triangle = _number + _previous;
+                yield return triangle;                
+                _previous = triangle;
+                count++;
+                if (limit > 0 && count == limit) yield break;
             }
-            return p.TriangleNumbers.ToArray();
         }
-
-        public static int GetTriangleNumber(int limit)
-        {
-            return 1.RangeTo(limit).Sum();            
-        }
-
-        public static int[] GetFactorCounts(int[] triangleNumbers)
-        {
-            int count = triangleNumbers.Length;
-            int[] factorCount = new int[count];
-            for (int i = 0; i < count; i++)
-            {
-                int number = triangleNumbers[i];
-                var factors = number.GetFactors().AddRange(new HashSet<int> { 1, number });
-                factorCount[i] = factors.Count;
-            }
-            return factorCount;
-        }
-
+        
         public static int GetFactorCount(int number)
         {
             return number.GetFactors().AddRange(new HashSet<int> { 1, number }).Count;
@@ -108,29 +86,19 @@ namespace ProjectEuler
             }
         }
 
-        public static int FindTriangleNumberByDivisors(int divisors)
+        public static int FindTriangleNumberByDivisors(int divisorLimit)
         {
-            bool found = false;
-            int number = -1;
-            if (divisors == 0) return -1;
-            int currentLimit = 1;
-            while (!found)
+            var p = new Problem12();
+            foreach(int number in p.TriangleNumbers())
             {
-                int[] sequence = GetTriangleNumbers(currentLimit);
-                int[] counts = GetFactorCounts(sequence);
-                int maxDivisorsCount = counts.Max();
-                number = sequence[counts.ToList().IndexOf(maxDivisorsCount)];
-                $"number: {number}, max: {maxDivisorsCount}, limit:{currentLimit}".ToConsole();
-                found = maxDivisorsCount >= divisors;
-                if (found)
+                int factors = GetFactorCount(number);
+                if (factors >= divisorLimit)
                 {
-                    number = sequence[counts.ToList().IndexOf(maxDivisorsCount)];
-                }
-                currentLimit += 1;
-            } 
-            return number;
+                    $"{number} => has {factors} divisors".ToConsole();
+                    return number;
+                }                
+            }
+            return -1;
         }
-
     }
-
 }
