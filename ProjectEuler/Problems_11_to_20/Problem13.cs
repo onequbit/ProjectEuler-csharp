@@ -112,6 +112,11 @@ namespace ProjectEuler
             "53503534226472524250874054075591789781264330331690"
         };
 
+        public Problem13()
+        {
+            $"problem size: {this._numberStrings.Length} numbers".ToConsole();
+        }
+
         public string Answer => _getOutput();
 
         public void ShowAnswer(object problemSize)
@@ -122,22 +127,65 @@ namespace ProjectEuler
 
         private string _getOutput()
         {
-            return _numberStrings.First() + "\r\n" + _numberStrings.Last();
+            string sum = "0";
+            foreach(string number in _numberStrings)
+            {
+                sum = AddDigits(sum, number);
+            }
+            return sum.Substring(0,10);
         }
 
         public string GetNumber(int index)
         {
             return _numberStrings[index];
         }
-
-        public static string AddDigits(string number1, string number2)
+        
+        public static int NormalizeNumbers(ref string number1, ref string number2)
         {
-            int[] digits1 = number1.ToIntGenerator().ToArray();
-            int[] digits2 = number2.ToIntGenerator().ToArray();
-            
-            return "";
+            int length = number1.Length;            
+            if (number1.Length > number2.Length)
+            {
+                number2 = "0" + number2;
+                return NormalizeNumbers(ref number1, ref number2);
+            }
+            else if (number1.Length < number2.Length)
+            {
+                return NormalizeNumbers(ref number2, ref number1);
+            }
+            else
+                return length;
         }
 
+        public static string AddDigits(string number1, string number2)            
+        {                        
+            int length = NormalizeNumbers(ref number1, ref number2);
+            int[] digitSums = new int[length];            
+            for(int i=0; i<number1.Length; i++)
+            {
+                digitSums[i] = number1.GetDigit(i) + number2.GetDigit(i);                
+            }
+            for(int i=0; i<length-1; i++)
+            {
+                int carry = (digitSums[i] > 9) ? 1 : 0;
+                if (digitSums[i] > 9)
+                {
+                    digitSums[i + 1] += 1;
+                    digitSums[i] = digitSums[i] % 10;
+                }
+            }
+            return digitSums.ToList().ToNumberString();            
+        }
+
+    }
+
+    public static class RndLib
+    {
+        private static readonly int ticksSeed = (int)(DateTime.Now.Ticks % int.MaxValue);
+        private static Random _random = new Random(ticksSeed);
+        public static int RandomInt(int minValue = 0, int maxValue = int.MaxValue)
+        {
+            return _random.Next(minValue, maxValue);
+        }
     }
 
     public static partial class ExtensionMethods
@@ -148,10 +196,28 @@ namespace ProjectEuler
             return int.Parse(numberString.Substring(numberString.Length - digit - 1, 1));
         }
 
-        public static IEnumerable<int> ToIntGenerator(this string numberString)
+        public static List<int> ToDigitList(this string numberString)
         {
-            foreach (char c in numberString.Reverse())
-                yield return int.Parse($"{c}");
+            List<int> digits = new List<int> { };
+            foreach(char c in numberString.Reverse())
+            {
+                int digit = 0;
+                int.TryParse($"{c}", out digit);
+                digits.Add(digit);
+            }
+            return digits;
         }
+
+        public static string ToNumberString(this List<int> digits)
+        {
+            StringBuilder sb = new StringBuilder();
+            digits.Reverse();
+            foreach(int digit in digits)
+            {
+                sb.Append($"{digit}");
+            }
+            return sb.ToString();
+        }
+        
     }
 }
