@@ -165,8 +165,7 @@ namespace ProjectEuler
                 digitSums[i] = number1.GetDigit(i) + number2.GetDigit(i);                
             }
             for(int i=0; i<length-1; i++)
-            {
-                int carry = (digitSums[i] > 9) ? 1 : 0;
+            {                
                 if (digitSums[i] > 9)
                 {
                     digitSums[i + 1] += 1;
