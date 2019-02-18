@@ -10,9 +10,9 @@ using CodeLibrary;
 namespace PE_UnitTests.Eleven_to_20
 {
     [TestClass]
-    public class Problem16_Tests
+    public class Problem16Tests
     {        
-        public Problem16_Tests()
+        public Problem16Tests()
         {
             Problem16.BuildCache(1000);
         }

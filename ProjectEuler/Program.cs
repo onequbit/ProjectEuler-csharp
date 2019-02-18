@@ -30,7 +30,8 @@ namespace ProjectEuler
             //GetSolution(new Problem13(), null);
             //GetSolution(new Problem14(), null);
             //GetSolution(new Problem15(), null);
-            GetSolution(new Problem16(), null);
+            //GetSolution(new Problem16(), null);
+            GetSolution(new Problem17(), null);
         }
     }
 
