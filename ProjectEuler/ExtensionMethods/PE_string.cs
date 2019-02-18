@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using CodeLibrary;
 
@@ -45,6 +46,23 @@ namespace ProjectEuler
             if (str.Length < 2) return "";
             return str.Substring(1, str.Length - 2);
         }
-        
+
+        public static List<int> ToDigitList(this string numberString)
+        {
+            List<int> digits = new List<int> { };
+            foreach (char c in numberString.Reverse())
+            {
+                int digit = 0;
+                int.TryParse($"{c}", out digit);
+                digits.Add(digit);
+            }
+            return digits;
+        }
+
+        public static int GetDigit(this string numberString, int digit)
+        {
+            if (numberString.Length < digit) return 0;
+            return int.Parse(numberString.Substring(numberString.Length - digit - 1, 1));
+        }
     }
 }

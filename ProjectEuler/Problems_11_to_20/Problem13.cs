@@ -189,34 +189,7 @@ namespace ProjectEuler
 
     public static partial class ExtensionMethods
     {
-        public static int GetDigit(this string numberString, int digit)
-        {
-            if (numberString.Length < digit) return 0;            
-            return int.Parse(numberString.Substring(numberString.Length - digit - 1, 1));
-        }
-
-        public static List<int> ToDigitList(this string numberString)
-        {
-            List<int> digits = new List<int> { };
-            foreach(char c in numberString.Reverse())
-            {
-                int digit = 0;
-                int.TryParse($"{c}", out digit);
-                digits.Add(digit);
-            }
-            return digits;
-        }
-
-        public static string ToNumberString(this List<int> digits)
-        {
-            StringBuilder sb = new StringBuilder();
-            digits.Reverse();
-            foreach(int digit in digits)
-            {
-                sb.Append($"{digit}");
-            }
-            return sb.ToString();
-        }
+        // moved to common extension methods area
         
     }
 }
